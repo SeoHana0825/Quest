@@ -1,0 +1,272 @@
+{
+  "info": {
+    "_postman_id": "ca6e494c-5c29-4860-b9af-8a47d28d81c0",
+    "name": "맛집 관리 API_과제",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "50334494",
+    "_collection_link": "https://onnuri1226-496043.postman.co/workspace/055cca53-057f-4770-897b-a0dae6f7931c/collection/50334494-ca6e494c-5c29-4860-b9af-8a47d28d81c0?action=share&source=collection_link&creator=50334494"
+  },
+  "item": [
+    {
+      "name": "댓글 등록",
+      "id": "53702efa-cbb6-4c44-91a8-60a8797ab80b",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"맛있는식당\",\r\n  \"price\": 50000,\r\n  \"caregory\": \"koreanfood\",\r\n  \"description\": \"음식이 맛이있고, 분위기가 좋아요!\",\r\n  \"link\" : \"https://example.com/food\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/comments",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "comments"
+          ],
+          "query": [
+            {
+              "key": "ID",
+              "value": "01546",
+              "disabled": true
+            },
+            {
+              "key": "ID",
+              "value": "slcknd0834",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "cc9fbfea-5835-4e29-baaa-7eb190445c2e",
+          "name": "댓글 등록",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"맛있는식당\",\r\n  \"price\": 50000,\r\n  \"caregory\": \"koreanfood\",\r\n  \"description\": \"음식이 맛이있고, 분위기가 좋아요!\",\r\n  \"link\" : \"https://example.com/food\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/comments",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "comments"
+              ],
+              "query": [
+                {
+                  "key": "Id",
+                  "value": "01546",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "name": "Content-Type",
+              "description": "",
+              "type": "text"
+            }
+          ],
+          "cookie": [
+            {
+              "expires": "Invalid Date",
+              "domain": "",
+              "path": ""
+            }
+          ],
+          "body": "\r\n{\r\n  \"id\": {{$randomInt}},\r\n  \"name\": \"{{$body 'name' ''}}\",\r\n  \"price\": {{$body 'price' ''}},\r\n  \"category\": \"{{$body 'category' ''}}\",\r\n  \"description\": \"{{$body 'description' ''}}\",\r\n  \"link\": \"{{$body 'link' ''}}\",\r\n  \"image\": \"{{$body 'image' ''}}\"\r\n}\r\n\r\n{\r\n  \"id\": {{$pathSegments '1'}},\r\n  \"name\": \"{{$body 'name' ''}}\",\r\n  \"price\": {{$body 'price' ''}},\r\n  \"category\": \"{{$body 'category' ''}}\",\r\n  \"description\": \"{{$body 'description' ''}}\",\r\n  \"link\": \"{{$body 'link' ''}}\",\r\n  \"image\": \"{{$body 'image' ''}}\"\r\n}"
+        }
+      ]
+    },
+    {
+      "name": "댓글 전체 조회",
+      "id": "74210a15-07e9-4ebf-9353-6c7cded381e1",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/comments",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "comments"
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "fac0c8f5-1141-480d-9ee5-02402f83dea6",
+          "name": "댓글 전체 조회",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/comments",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "comments"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "name": "Content-Type",
+              "description": "",
+              "type": "text"
+            }
+          ],
+          "cookie": [
+            {
+              "expires": "Invalid Date",
+              "domain": "",
+              "path": ""
+            }
+          ],
+          "body": "[\r\n { \r\n\t\"ID\": 01546, \r\n  \"name\": \"맛있는 식당\",\r\n  \"category\": \"koreanfood\",\r\n  \"description\": \"음식이 맛이있고, 분위기가 좋아요!\",\r\n  \"link\" : \"https://example.com/kfood\",\r\n  \"image\": \"image/image/\"\r\n},\r\n{\r\n\t\"ID2\": \"dlkcjwj0915\", \r\n  \"name\": \"고양아 스시먹자\",\r\n  \"category\": \"japanesefood\",\r\n  \"description\": \"재료들이 신선하고 간단히 먹기 좋아요\",\r\n  \"link\" : \"https://example.com/sushi\",\r\n  \"image\": \"\"\r\n}\r\n]"
+        }
+      ]
+    },
+    {
+      "name": "댓글 삭제",
+      "id": "a3717b04-e13a-4e02-9bc5-71716bf15762",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/comments/01546",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "comments",
+            "01546"
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "aa67f2c6-ed41-440b-ab07-c4a732562e00",
+          "name": "댓글 삭제",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/comments/01546",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "comments",
+                "01546"
+              ]
+            }
+          },
+          "status": "No Content",
+          "code": 204,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "name": "Content-Type",
+              "description": "",
+              "type": "text"
+            }
+          ],
+          "cookie": [
+            {
+              "expires": "Invalid Date",
+              "domain": "",
+              "path": ""
+            }
+          ],
+          "body": "{\r\n  \"id\": {{$randomInt}},\r\n  \"name\": \"{{$body 'name' ''}}\",\r\n  \"price\": {{$body 'price' ''}},\r\n  \"category\": \"{{$body 'category' ''}}\",\r\n  \"description\": \"{{$body 'description' ''}}\",\r\n  \"link\": \"{{$body 'link' ''}}\",\r\n  \"image\": \"{{$body 'image' ''}}\"\r\n}\r\n\r\n{\r\n  \"id\": {{$pathSegments '1'}},\r\n  \"name\": \"{{$body 'name' ''}}\",\r\n  \"price\": {{$body 'price' ''}},\r\n  \"category\": \"{{$body 'category' ''}}\",\r\n  \"description\": \"{{$body 'description' ''}}\",\r\n  \"link\": \"{{$body 'link' ''}}\",\r\n  \"image\": \"{{$body 'image' ''}}\"\r\n}"
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "63bbc9a9-1585-4d7c-9628-c9b53d787275",
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "fb0ec761-ee21-4e79-a215-74bf308d8202",
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "id": "12c5febd-ff34-43b3-8f28-fd982ab953bc",
+      "key": "baseURL",
+      "value": ""
+    }
+  ]
+}
