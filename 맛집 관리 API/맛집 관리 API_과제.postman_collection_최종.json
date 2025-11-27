@@ -1,0 +1,272 @@
+{
+	"info": {
+		"_postman_id": "ca6e494c-5c29-4860-b9af-8a47d28d81c0",
+		"name": "맛집 관리 API_과제",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "50334494",
+		"_collection_link": "https://onnuri1226-496043.postman.co/workspace/hana-seo's-Workspace~055cca53-057f-4770-897b-a0dae6f7931c/collection/50334494-ca6e494c-5c29-4860-b9af-8a47d28d81c0?action=share&source=collection_link&creator=50334494"
+	},
+	"item": [
+		{
+			"name": "댓글 등록",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"맛있는식당\",\r\n  \"caregory\": \"한식\",\r\n  \"description\": \"음식이 맛이있고, 분위기가 좋아요!\",\r\n  \"link\" : \"https://example.com/food\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/places/1/comments",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"places",
+						"1",
+						"comments"
+					],
+					"query": [
+						{
+							"key": "ID",
+							"value": "01546",
+							"disabled": true
+						},
+						{
+							"key": "ID",
+							"value": "slcknd0834",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "댓글 등록",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"맛있는식당\",\r\n  \"caregory\": \"한식\",\r\n  \"description\": \"음식이 맛이있고, 분위기가 좋아요!\",\r\n  \"link\" : \"https://example.com/food\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/places/1/comments",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"places",
+								"1",
+								"comments"
+							],
+							"query": [
+								{
+									"key": "Id",
+									"value": "01546",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date",
+							"domain": "",
+							"path": ""
+						}
+					],
+					"body": "\r\n{\r\n  \"id\": {{$randomInt}},\r\n  \"name\": \"{{$body 'name' ''}}\",\r\n  \"price\": {{$body 'price' ''}},\r\n  \"category\": \"{{$body 'category' ''}}\",\r\n  \"description\": \"{{$body 'description' ''}}\",\r\n  \"link\": \"{{$body 'link' ''}}\",\r\n  \"image\": \"{{$body 'image' ''}}\"\r\n}\r\n\r\n{\r\n  \"id\": {{$pathSegments '1'}},\r\n  \"name\": \"{{$body 'name' ''}}\",\r\n  \"price\": {{$body 'price' ''}},\r\n  \"category\": \"{{$body 'category' ''}}\",\r\n  \"description\": \"{{$body 'description' ''}}\",\r\n  \"link\": \"{{$body 'link' ''}}\",\r\n  \"image\": \"{{$body 'image' ''}}\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "댓글 전체 조회",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/places/1/commnents",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"places",
+						"1",
+						"commnents"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "댓글 전체 조회",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/places/1/commnents",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"places",
+								"1",
+								"commnents"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date",
+							"domain": "",
+							"path": ""
+						}
+					],
+					"body": "[\r\n { \r\n\t\"ID\": 01546, \r\n  \"name\": \"맛있는 식당\",\r\n  \"category\": \"한식\",\r\n  \"description\": \"음식이 맛이있고, 분위기가 좋아요!\",\r\n  \"link\" : \"https://example.com/kfood\",\r\n  \"image\": \"image/image/\"\r\n},\r\n{\r\n\t\"ID2\": \"dlkcjwj0915\", \r\n  \"name\": \"고양아 스시먹자\",\r\n  \"category\": \"일식\",\r\n  \"description\": \"재료들이 신선하고 간단히 먹기 좋아요\",\r\n  \"link\" : \"https://example.com/sushi\",\r\n  \"image\": \"\"\r\n}\r\n]"
+				}
+			]
+		},
+		{
+			"name": "댓글 삭제",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/places/1/comments/id",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"places",
+						"1",
+						"comments",
+						"id"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "댓글 삭제",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/places/1/comments/id",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"places",
+								"1",
+								"comments",
+								"id"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date",
+							"domain": "",
+							"path": ""
+						}
+					],
+					"body": "{\r\n  \"id\": {{$randomInt}},\r\n  \"name\": \"{{$body 'name' ''}}\",\r\n  \"price\": {{$body 'price' ''}},\r\n  \"category\": \"{{$body 'category' ''}}\",\r\n  \"description\": \"{{$body 'description' ''}}\",\r\n  \"link\": \"{{$body 'link' ''}}\",\r\n  \"image\": \"{{$body 'image' ''}}\"\r\n}\r\n\r\n{\r\n  \"id\": {{$pathSegments '1'}},\r\n  \"name\": \"{{$body 'name' ''}}\",\r\n  \"price\": {{$body 'price' ''}},\r\n  \"category\": \"{{$body 'category' ''}}\",\r\n  \"description\": \"{{$body 'description' ''}}\",\r\n  \"link\": \"{{$body 'link' ''}}\",\r\n  \"image\": \"{{$body 'image' ''}}\"\r\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": ""
+		}
+	]
+}
